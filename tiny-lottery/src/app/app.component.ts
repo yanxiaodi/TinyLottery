@@ -32,10 +32,10 @@ import {
         opacity: 0.2,
       })),
       transition('open => closed', [
-        animate('500ms')
+        animate('300ms')
       ]),
       transition('closed => open', [
-        animate('500ms')
+        animate('300ms')
       ]),
     ]),
   ],
