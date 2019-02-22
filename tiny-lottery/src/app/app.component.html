@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,6 +16,17 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
-
+</ul> -->
+<mat-toolbar>
+    <span>CITANZ Lottery</span>
+</mat-toolbar>
+<mat-grid-list cols="12">
+    <mat-grid-tile *ngFor="let attendee of attendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
+        <div [@openClose]="attendee.isSelected ? 'open' : 'closed'">
+            <div><img class="img center" [src]="attendee.photo" /></div>
+            <div class="name"><span>{{attendee.name}}</span></div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+<button mat-button color="accent" (click)="startLottery()">Click Me!</button>
 <router-outlet></router-outlet>
