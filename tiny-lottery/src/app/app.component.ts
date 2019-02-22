@@ -26,27 +26,42 @@ import {
         marginRight: 'auto',
         opacity: 1,
       })),
-state('closed', style({
-  height: '80px',
-  width: '80px',
-  opacity: 0.2,
-})),
-  transition('open => closed', [
-    animate('500ms')
-  ]),
-  transition('closed => open', [
-    animate('500ms')
-  ]),
+      state('closed', style({
+        height: '70px',
+        width: '70px',
+        opacity: 0.2,
+      })),
+      transition('open => closed', [
+        animate('500ms')
+      ]),
+      transition('closed => open', [
+        animate('500ms')
+      ]),
     ]),
   ],
 })
 export class AppComponent implements OnInit {
   title = 'tiny-lottery';
   attendees: Array<Attendee>;
-  private timer;
-  private isRunning: boolean;
+  timer: any;
+  isRunning: boolean;
+  buttonPlayText: string;
+  luckyAttendees: Array<Attendee>;
+  controlButtonVisible: boolean;
+  confirmResultButtonsVisible: boolean;
+  currentLuckyAttendee: Attendee;
+  resultPanelVisible: boolean;
+  luckyAttendeesCount: number;
+  titleMessage: string;
   constructor(private attendeeService: AttendeeService) {
     this.isRunning = false;
+    this.buttonPlayText = 'Start!';
+    this.luckyAttendees = new Array<Attendee>();
+    this.controlButtonVisible = true;
+    this.confirmResultButtonsVisible = false;
+    this.resultPanelVisible = false;
+    this.luckyAttendeesCount = 0;
+    this.titleMessage = 'CITANZ Meetup Lottery';
   }
 
   ngOnInit() {
@@ -56,6 +71,7 @@ export class AppComponent implements OnInit {
   startLottery() {
     if (!this.isRunning) {
       this.isRunning = true;
+      this.buttonPlayText = 'Good Luck!';
       this.timer = setInterval(() => this.setRandom(), 50);
     } else {
       clearInterval(this.timer);
@@ -63,14 +79,36 @@ export class AppComponent implements OnInit {
       this.attendees.forEach(element => {
         element.isSelected = false;
       });
-      this.setRandom();
+      this.buttonPlayText = 'Start!';
+      this.controlButtonVisible = false;
+      this.confirmResultButtonsVisible = true;
+      this.currentLuckyAttendee = this.setRandom();
     }
   }
 
-  setRandom() {
+  setRandom(): Attendee {
     const count = this.attendees.length;
-    const target = Math.floor(Math.random() * (count - 1));
+    const target = Math.floor(Math.random() * count);
     this.attendees[target].isSelected = !this.attendees[target].isSelected;
+    return this.attendees[target];
+  }
+
+  confirmResultYes() {
+    this.attendees.splice(this.attendees.indexOf(this.currentLuckyAttendee), 1);
+    this.luckyAttendees.push(this.currentLuckyAttendee);
+    this.controlButtonVisible = true;
+    this.confirmResultButtonsVisible = false;
+    this.luckyAttendeesCount = this.luckyAttendees.length;
+    if (!this.resultPanelVisible) {
+      this.resultPanelVisible = true;
+    }
+    this.titleMessage = 'Congratulations!';
+  }
+
+  confirmResultNo() {
+    this.attendees.splice(this.attendees.indexOf(this.currentLuckyAttendee), 1);
+    this.controlButtonVisible = true;
+    this.confirmResultButtonsVisible = false;
   }
 
 }
