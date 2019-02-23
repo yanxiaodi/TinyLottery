@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
   resultPanelVisible: boolean;
   luckyAttendeesCount: number;
   titleMessage: string;
+  copyright: string;
   constructor(private attendeeService: AttendeeService) {
     this.isRunning = false;
     this.buttonPlayText = 'Start!';
@@ -72,6 +73,7 @@ export class AppComponent implements OnInit {
     this.resultPanelVisible = false;
     this.luckyAttendeesCount = 0;
     this.titleMessage = 'CITANZ Meetup Lucky Draw';
+    this.copyright = 'CITANZ 2019';
   }
 
   ngOnInit() {

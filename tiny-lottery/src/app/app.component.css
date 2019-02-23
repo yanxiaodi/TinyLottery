@@ -33,3 +33,13 @@
     text-align: center;
     width: 100%;
 }
+
+.copyright {
+    padding: 10px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.example-header-image {
+    background-image: url('/assets/citanz-logo.png');
+    background-size: cover;
+}

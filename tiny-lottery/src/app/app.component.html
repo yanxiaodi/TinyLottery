@@ -19,7 +19,8 @@
 </ul> -->
 <mat-card>
     <mat-card-header>
-        <mat-card-title matBadge="{{luckyAttendeesCount}}" matBadgePosition="before" matBadgeColor="accent" matBadgeOverlap="false">{{titleMessage}}</mat-card-title>
+        <div mat-card-avatar class="example-header-image" matBadge="{{luckyAttendeesCount}}" matBadgeColor="accent"></div>
+        <mat-card-title>{{titleMessage}}</mat-card-title>
         <mat-card-subtitle>CITANZ</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
@@ -51,6 +52,8 @@
         </div>
     </mat-card-content>
 </mat-card>
-
+<div class="panel copyright">
+    <span>&copy;{{copyright}}</span>
+</div>
 
 <!-- <router-outlet></router-outlet> -->
