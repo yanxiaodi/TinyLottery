@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
     this.confirmResultButtonsVisible = false;
     this.resultPanelVisible = false;
     this.luckyAttendeesCount = 0;
-    this.titleMessage = 'CITANZ Meetup Lottery';
+    this.titleMessage = 'CITANZ Meetup Lucky Draw';
   }
 
   ngOnInit() {
