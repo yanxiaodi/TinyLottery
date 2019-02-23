@@ -24,17 +24,18 @@
     </mat-card-header>
     <mat-card-content>
         <mat-grid-list cols="12" *ngIf="resultPanelVisible">
-            <mat-grid-tile *ngFor="let attendee of luckyAttendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
+            <mat-grid-tile @flyInOut *ngFor="let attendee of luckyAttendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
                 <div>
                     <div><img class="img big-img center" [src]="attendee.photo" /></div>
                     <div class="name"><span>{{attendee.name}}</span></div>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
+        <mat-divider *ngIf="resultPanelVisible"></mat-divider>
         <mat-grid-list cols="12">
-            <mat-grid-tile *ngFor="let attendee of attendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
-                <div [@openClose]="attendee.isSelected ? 'open' : 'closed'">
-                    <div><img class="img center" [src]="attendee.photo" /></div>
+            <mat-grid-tile @flyInOut *ngFor="let attendee of attendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
+                <div>
+                    <div><img [@openClose]="attendee.isSelected ? 'open' : 'closed'" class="img center" [src]="attendee.photo" /></div>
                     <div class="name"><span>{{attendee.name}}</span></div>
                 </div>
             </mat-grid-tile>

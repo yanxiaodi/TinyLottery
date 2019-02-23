@@ -29,15 +29,25 @@ import {
       state('closed', style({
         height: '70px',
         width: '70px',
-        opacity: 0.2,
+        opacity: 0.5,
       })),
       transition('open => closed', [
-        animate('300ms')
+        animate('500ms')
       ]),
       transition('closed => open', [
-        animate('300ms')
+        animate('500ms')
       ]),
     ]),
+    trigger('flyInOut', [
+      state('in', style({ transform: 'translateY(0)' })),
+      transition('void => *', [
+        style({ transform: 'translateY(100%)' }),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({ transform: 'translateY(-100%)' }))
+      ])
+    ])
   ],
 })
 export class AppComponent implements OnInit {

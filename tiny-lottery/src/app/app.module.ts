@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule, MatCardModule, MatGridListModule, MatButtonModule, MatBadgeModule } from '@angular/material';
+import { MatToolbarModule, MatCardModule, MatGridListModule,
+  MatButtonModule, MatBadgeModule, MatDividerModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatGridListModule,
     MatButtonModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
