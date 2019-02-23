@@ -29,5 +29,7 @@ ng run --open
 
 That's it!
 
+![image](/tiny-lottery.gif)
+
 ## Contact me
 yan_xiaodi{at}hotmail.com
