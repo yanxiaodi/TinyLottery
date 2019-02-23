@@ -22,7 +22,7 @@ export class AttendeeService {
           if (element.member.photo) {
             attendee.photo = element.member.photo.photo_link;
           } else {
-            attendee.photo = '';
+            attendee.photo = '/assets/citanz-logo.png';
           }
           attendees.push(attendee);
         });
