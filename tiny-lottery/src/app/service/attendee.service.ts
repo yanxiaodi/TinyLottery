@@ -15,7 +15,7 @@ export class AttendeeService {
     return this.http.get<any>('./assets/attendees.json')
       .pipe(map(data => {
         const attendees = new Array<Attendee>();
-        data.responses[0].value.filter(x => x.response === 'yes').forEach(element => {
+        data.responses[0].value.filter(x => x.rsvp.response === 'yes').forEach(element => {
           const attendee = new Attendee();
           attendee.id = element.member.id;
           attendee.name = element.member.name;
