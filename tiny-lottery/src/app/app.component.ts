@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { Attendee } from './model/attendee';
 import { AttendeeService } from './service/attendee.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +27,7 @@ import {
         marginLeft: 'auto',
         marginRight: 'auto',
         opacity: 1,
+        border: 'solid 2px red'
       })),
       state('closed', style({
         height: '70px',
