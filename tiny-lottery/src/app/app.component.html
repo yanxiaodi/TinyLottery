@@ -24,8 +24,8 @@
         <mat-card-subtitle>CITANZ</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <mat-grid-list cols="12" *ngIf="resultPanelVisible">
-            <mat-grid-tile @flyInOut *ngFor="let attendee of luckyAttendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
+        <mat-grid-list cols="{{breakpoint}}" *ngIf="resultPanelVisible">
+            <mat-grid-tile @flyInOut *ngFor="let attendee of luckyAttendees" [colspan]="1" [rowspan]="1" rowHeight="3:5">
                 <div>
                     <div><img class="img big-img center" [src]="attendee.photo" /></div>
                     <div class="name"><span>{{attendee.name}}</span></div>
@@ -33,8 +33,8 @@
             </mat-grid-tile>
         </mat-grid-list>
         <mat-divider *ngIf="resultPanelVisible"></mat-divider>
-        <mat-grid-list cols="12">
-            <mat-grid-tile @flyInOut *ngFor="let attendee of attendees" [colspan]="1" [rowspan]="1" rowHeight="100px">
+        <mat-grid-list cols="{{breakpoint}}" (window:resize)="onResize($event)">
+            <mat-grid-tile @flyInOut *ngFor="let attendee of attendees" [colspan]="1" [rowspan]="1" rowHeight="3:5">
                 <div>
                     <div><img [@openClose]="attendee.isSelected ? 'open' : 'closed'" class="img center" [src]="attendee.photo" /></div>
                     <div class="name"><span>{{attendee.name}}</span></div>

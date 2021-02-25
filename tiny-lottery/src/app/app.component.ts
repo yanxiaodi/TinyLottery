@@ -67,6 +67,7 @@ export class AppComponent implements OnInit {
   luckyAttendeesCount: number;
   titleMessage: string;
   copyright: string;
+  breakpoint: number;
   constructor(private attendeeService: AttendeeService) {
     this.isRunning = false;
     this.buttonPlayText = 'Start!';
@@ -80,6 +81,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 400) ? 4 : 7;
     this.attendeeService.getAttendees().subscribe(attendees => this.attendees = attendees);
   }
 
@@ -126,4 +128,7 @@ export class AppComponent implements OnInit {
     this.confirmResultButtonsVisible = false;
   }
 
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 4 : 7;
+  }
 }
