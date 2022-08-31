@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 4 : 7;
+    this.breakpoint = (window.innerWidth <= 400) ? 4 : 10;
     this.attendeeService.getAttendees().subscribe(attendees => this.attendees = attendees);
   }
 
@@ -129,6 +129,6 @@ export class AppComponent implements OnInit {
   }
 
   onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 4 : 7;
+    this.breakpoint = (event.target.innerWidth <= 400) ? 4 : 10;
   }
 }

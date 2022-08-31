@@ -12,7 +12,7 @@ export class AttendeeService {
   localFilePath = './assets/attendees.json';
   remoteUrl = 'https://citanz-api.leochen.co.nz/events/discover-the-world-of-net-net-conf-overview/attended-list';
   // remoteUrl = 'https://www.cita.org.nz/events/carnival-2019/attended-list';
-  isLocal = false;
+  isLocal = true;
   constructor(private http: HttpClient) { }
 
   public getAttendees(): Observable<Array<Attendee>> {
