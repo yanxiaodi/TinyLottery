@@ -10,8 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AttendeeService {
 
   localFilePath = './assets/attendees.json';
-  remoteUrl = 'https://citanz-api.leochen.co.nz/events/discover-the-world-of-net-net-conf-overview/attended-list';
-  // remoteUrl = 'https://www.cita.org.nz/events/carnival-2019/attended-list';
+  remoteUrl = 'https://www.cita.org.nz/events/carnival-2019/attended-list';
   isLocal = true;
   constructor(private http: HttpClient) { }
 

@@ -1,4 +1,3 @@
-import { browser } from 'protractor';
 import { Attendee } from './model/attendee';
 import { AttendeeService } from './service/attendee.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +9,6 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-import { reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -77,7 +75,7 @@ export class AppComponent implements OnInit {
     this.resultPanelVisible = false;
     this.luckyAttendeesCount = 0;
     this.titleMessage = 'CITANZ Meetup Lucky Draw';
-    this.copyright = 'CITANZ 2019';
+    this.copyright = 'CITANZ 2022';
   }
 
   ngOnInit() {
