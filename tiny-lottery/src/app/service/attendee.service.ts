@@ -19,15 +19,17 @@ export class AttendeeService {
       return this.http.get<any>(this.localFilePath)
         .pipe(map(data => {
           const attendees = new Array<Attendee>();
-          data.responses[0].value.filter(x => x.response === 'yes').forEach(element => {
+          //data.responses[0].value.filter(x => x.rsvp.response === 'yes').forEach(element => {
+          data.data.forEach(element => {
             const attendee = new Attendee();
-            attendee.id = element.member.id;
-            attendee.name = element.member.name;
-            if (element.member.photo) {
-              attendee.photo = element.member.photo.photo_link;
-            } else {
-              attendee.photo = '/assets/citanz-logo.png';
-            }
+            //attendee.id = element.node.member.id;
+            attendee.name = element.name;
+            // if (element.node.member.memberPhoto) {
+            //   attendee.photo = '/assets/citanz-logo.png';
+            // } else {
+            //   attendee.photo = '/assets/citanz-logo.png';
+            // }
+            attendee.photo = '/assets/citanz-logo.png';
             attendees.push(attendee);
           });
           return attendees;
